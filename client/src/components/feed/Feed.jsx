@@ -4,19 +4,21 @@ import Share from '../share/Share';
 import "./feed.css";
 import axios from "axios";
 
-export default function Feed() {
+export default function Feed({username}) {
 
     const [posts,setPosts] = useState([]);
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const res = await axios.get("posts/timeline/609c77bf7055d65afc93390f");
+            const res = username 
+            ? await axios.get("/posts/profile/" + username)
+            : await axios.get("/posts/timeline/609c77cb7055d65afc933910");
             setPosts(res.data);
         }
 
         fetchPosts();
         
-    }, []);
+    }, [username]);
 
     return (
         <div className="feed">
