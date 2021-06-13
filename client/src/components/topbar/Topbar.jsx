@@ -4,10 +4,16 @@ import { Search, Person, Chat, Notifications } from "@material-ui/icons";
 import {Link} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext";
 
+
 export default function Topbar() {
 
     const {user} = useContext(AuthContext);
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
+    const handleLogout = () => {
+        localStorage.setItem("user", null);
+        window.location.reload();
+    }
 
     return (
         <div className="topbarContainer">
@@ -24,7 +30,7 @@ export default function Topbar() {
             </div>
             <div className="topbarRight">
                 <span className="topbarLink">Home</span>
-                <span className="topbarLink">Timeline</span>
+                <span onClick={handleLogout} className="topbarLink">Logout</span>
                 <div className="topbarIcon">
                     <div className="topbarIconItem">
                         <Person/>
