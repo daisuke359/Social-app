@@ -66,6 +66,7 @@ export default function Rightbar({user}) {
                     <span className="birthdayText"><b>Yui Kobayashi</b> and <b>3 other friends</b> have a birthday today</span>
                 </div>
                 <img src={`${PF}ad.png`} alt="" className="rightbarAd" />
+                <div className="rightbarFriendListWrapper">
                 <h4 className="rightbarTitle">Online Friends</h4>
                 <ul className="rightbarFriendList">
                     {users.map(u=> (
@@ -73,6 +74,8 @@ export default function Rightbar({user}) {
                     ))}
                     
                 </ul>
+                </div>
+                
             </>
         )
     };

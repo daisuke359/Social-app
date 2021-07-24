@@ -32,12 +32,12 @@ export default function Topbar() {
             <div className="topbarCenter">
                 <form className="searchbar">
                     <Search className="searchIcon"/>
-                    <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search for friends, posts and videos" className="searchInput" type="text" />
+                    <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search for friends" className="searchInput" type="text" />
                     <button onClick={handleClick} type="submit">Send</button>
                 </form>
             </div>
             <div className="topbarRight">
-                <span className="topbarLink">Home</span>
+                <span className="topbarLink topbarHome">Home</span>
                 <span onClick={handleLogout} className="topbarLink">Logout</span>
                 <div className="topbarIcon">
                     <div className="topbarIconItem">
