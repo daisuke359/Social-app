@@ -4,6 +4,7 @@ import Share from '../share/Share';
 import "./feed.css";
 import axios from "axios";
 import { AuthContext } from '../../context/AuthContext';
+import FlipMove from "react-flip-move";
 
 export default function Feed({username}) {
 
@@ -22,15 +23,18 @@ export default function Feed({username}) {
 
         fetchPosts();
         
-    }, [username, user]);
+    }, [username, user, posts]);
 
     return (
         <div className="feed">
            <div className="feedWrapper">
                {(!username || username === user.username) && <Share/>}
+               <FlipMove>
                {posts.map(p => (
                     <Post key={p._id} post={p}/>
                ))}
+               </FlipMove>
+               
                
            </div>
         </div>
