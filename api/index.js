@@ -16,11 +16,11 @@ mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopolo
     console.log("connected to mongodb");
 });
 
-app.use("/images", express.static(path.join(__dirname, "public/images")));
-
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
+
+app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 const storage = multer.diskStorage({
     destination:(req, file, cb) => {
